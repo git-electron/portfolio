@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: Container(
-              padding: const Pad(horizontal: 100),
+              padding: const Pad(horizontal: 200),
               constraints: BoxConstraints(maxWidth: 1400),
               child: Column(
                 spacing: 10,
