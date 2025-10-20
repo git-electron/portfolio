@@ -1,0 +1,9 @@
+{
+  "changeLanguage": "Change language",
+  "styles": {
+    "accent": "Accent",
+    "body": "Body",
+    "header": "Header",
+    "title": "Title"
+  }
+}
