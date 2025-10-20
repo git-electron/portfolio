@@ -79,10 +79,10 @@ class _LayoutTypeWrapper extends StatelessWidget {
               LayoutType.mobile => Pad(horizontal: 20),
             }
           : Pad.zero,
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 1600),
-        child: Align(
-          alignment: Alignment.center,
+      child: Align(
+        alignment: Alignment.center,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 1600),
           child: child,
         ),
       ),
