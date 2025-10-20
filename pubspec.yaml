@@ -1,5 +1,5 @@
 name: portfolio
-description: "A new Flutter project."
+description: "Flutter developer's portfolio page"
 publish_to: "none"
 version: 1.0.0+1
 
@@ -69,6 +69,11 @@ flutter:
     - assets/icons/github/
 
     - assets/images/
+    - assets/images/header/
+    - assets/images/general/
+    - assets/images/general/logo/
+    - assets/images/general/logo/filled/
+    - assets/images/general/logo/transparent/
 
   fonts:
     - family: Nauryz

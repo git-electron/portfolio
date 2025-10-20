@@ -1,11 +1,4 @@
 {
-  "changeLanguage": "Change language",
-  "styles": {
-    "accent": "Accent",
-    "body": "Body",
-    "header": "Header",
-    "title": "Title"
-  },
   "home": {
     "header": {
       "introduction": "Hi 👋, I'm a Flutter developer",
@@ -14,5 +7,6 @@
         "mobile": "EGOR\nMYADZUTA"
       }
     }
-  }
+  },
+  "title": "Egor Myadzuta"
 }

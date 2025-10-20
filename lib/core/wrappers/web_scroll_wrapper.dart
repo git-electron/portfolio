@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/di/injector.dart';
+import 'package:portfolio/core/domain/services/device_info_service.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class WebScrollWrapper extends StatelessWidget {
@@ -13,6 +15,10 @@ class WebScrollWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobileDevice = $<DeviceInfoService>().isMobileDevice;
+
+    if (isMobileDevice) return child;
+
     return WebSmoothScroll(
       scrollSpeed: 1,
       scrollAnimationLength: 300,

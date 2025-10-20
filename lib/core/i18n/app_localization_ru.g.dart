@@ -32,22 +32,8 @@ class TranslationsRu extends Translations {
 	TranslationsRu $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsRu(meta: meta ?? this.$meta);
 
 	// Translations
-	@override String get changeLanguage => 'Изменить язык';
-	@override late final TranslationsStylesRu styles = TranslationsStylesRu._(_root);
 	@override late final TranslationsHomeRu home = TranslationsHomeRu._(_root);
-}
-
-// Path: styles
-class TranslationsStylesRu extends TranslationsStylesEn {
-	TranslationsStylesRu._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get accent => 'Акцент';
-	@override String get body => 'Текст';
-	@override String get header => 'Заголовок';
-	@override String get title => 'Подзаголовок';
+	@override String get title => 'Егор Мядзюта';
 }
 
 // Path: home

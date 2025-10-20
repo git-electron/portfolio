@@ -21,6 +21,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: AppTheme.dark,
+      title: context.t.title,
       supportedLocales: AppLocaleUtils.supportedLocales,
       locale: TranslationProvider.of(context).flutterLocale,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,

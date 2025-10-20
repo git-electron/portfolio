@@ -34,33 +34,10 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
 
 	// Translations
-
-	/// en: 'Change language'
-	String get changeLanguage => 'Change language';
-
-	late final TranslationsStylesEn styles = TranslationsStylesEn.internal(_root);
 	late final TranslationsHomeEn home = TranslationsHomeEn.internal(_root);
-}
 
-// Path: styles
-class TranslationsStylesEn {
-	TranslationsStylesEn.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Accent'
-	String get accent => 'Accent';
-
-	/// en: 'Body'
-	String get body => 'Body';
-
-	/// en: 'Header'
-	String get header => 'Header';
-
-	/// en: 'Title'
-	String get title => 'Title';
+	/// en: 'Egor Myadzuta'
+	String get title => 'Egor Myadzuta';
 }
 
 // Path: home

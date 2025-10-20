@@ -33,16 +33,11 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/main_background.png
-  AssetGenImage get mainBackground =>
-      const AssetGenImage('assets/images/main_background.png');
+  /// Directory path: assets/images/general
+  $AssetsImagesGeneralGen get general => const $AssetsImagesGeneralGen();
 
-  /// File path: assets/images/main_photo.png
-  AssetGenImage get mainPhoto =>
-      const AssetGenImage('assets/images/main_photo.png');
-
-  /// List of all assets
-  List<AssetGenImage> get values => [mainBackground, mainPhoto];
+  /// Directory path: assets/images/header
+  $AssetsImagesHeaderGen get header => const $AssetsImagesHeaderGen();
 }
 
 class $AssetsIconsEmailGen {
@@ -95,6 +90,86 @@ class $AssetsIconsPhoneGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [dark, light];
+}
+
+class $AssetsImagesGeneralGen {
+  const $AssetsImagesGeneralGen();
+
+  /// Directory path: assets/images/general/logo
+  $AssetsImagesGeneralLogoGen get logo => const $AssetsImagesGeneralLogoGen();
+}
+
+class $AssetsImagesHeaderGen {
+  const $AssetsImagesHeaderGen();
+
+  /// File path: assets/images/header/main_background.png
+  AssetGenImage get mainBackground =>
+      const AssetGenImage('assets/images/header/main_background.png');
+
+  /// File path: assets/images/header/main_photo.png
+  AssetGenImage get mainPhoto =>
+      const AssetGenImage('assets/images/header/main_photo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [mainBackground, mainPhoto];
+}
+
+class $AssetsImagesGeneralLogoGen {
+  const $AssetsImagesGeneralLogoGen();
+
+  /// Directory path: assets/images/general/logo/filled
+  $AssetsImagesGeneralLogoFilledGen get filled =>
+      const $AssetsImagesGeneralLogoFilledGen();
+
+  /// Directory path: assets/images/general/logo/transparent
+  $AssetsImagesGeneralLogoTransparentGen get transparent =>
+      const $AssetsImagesGeneralLogoTransparentGen();
+}
+
+class $AssetsImagesGeneralLogoFilledGen {
+  const $AssetsImagesGeneralLogoFilledGen();
+
+  /// File path: assets/images/general/logo/filled/favicon.png
+  AssetGenImage get favicon =>
+      const AssetGenImage('assets/images/general/logo/filled/favicon.png');
+
+  /// File path: assets/images/general/logo/filled/full.png
+  AssetGenImage get full =>
+      const AssetGenImage('assets/images/general/logo/filled/full.png');
+
+  /// File path: assets/images/general/logo/filled/half.png
+  AssetGenImage get half =>
+      const AssetGenImage('assets/images/general/logo/filled/half.png');
+
+  /// File path: assets/images/general/logo/filled/quarter.png
+  AssetGenImage get quarter =>
+      const AssetGenImage('assets/images/general/logo/filled/quarter.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [favicon, full, half, quarter];
+}
+
+class $AssetsImagesGeneralLogoTransparentGen {
+  const $AssetsImagesGeneralLogoTransparentGen();
+
+  /// File path: assets/images/general/logo/transparent/favicon.png
+  AssetGenImage get favicon =>
+      const AssetGenImage('assets/images/general/logo/transparent/favicon.png');
+
+  /// File path: assets/images/general/logo/transparent/full.png
+  AssetGenImage get full =>
+      const AssetGenImage('assets/images/general/logo/transparent/full.png');
+
+  /// File path: assets/images/general/logo/transparent/half.png
+  AssetGenImage get half =>
+      const AssetGenImage('assets/images/general/logo/transparent/half.png');
+
+  /// File path: assets/images/general/logo/transparent/quarter.png
+  AssetGenImage get quarter =>
+      const AssetGenImage('assets/images/general/logo/transparent/quarter.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [favicon, full, half, quarter];
 }
 
 class Assets {

@@ -1,5 +1,6 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:injectable/injectable.dart';
+import 'package:portfolio/core/domain/models/device_type.dart';
 
 @singleton
 class DeviceInfoService {
@@ -14,8 +15,14 @@ class DeviceInfoService {
 
   late final WebBrowserInfo _webBrowserInfo;
 
-  bool get isMobileDevice {
-    print(_webBrowserInfo.platform);
-    return false;
+  DeviceType get deviceType {
+    final String? platform = _webBrowserInfo.platform?.toLowerCase();
+
+    if (platform == null) return DeviceType.desktop;
+    if (platform.contains('mac') || platform.contains('win') || platform.contains('linux')) return DeviceType.desktop;
+    return DeviceType.mobile;
   }
+
+  bool get isMobileDevice => deviceType == DeviceType.mobile;
+  bool get isDesktopDevice => deviceType == DeviceType.desktop;
 }
