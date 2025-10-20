@@ -3,9 +3,9 @@ part of 'theme_extensions.dart';
 class _Styles {
   static const TextStyle header = TextStyle(
     fontSize: 55,
-    height: 0.8,
+    height: 0.95,
     color: _Colors.text,
-    fontFamily: FontFamily.sFPro,
+    fontFamily: FontFamily.nauryz,
     fontWeight: FontWeight.w900,
   );
 

@@ -61,13 +61,20 @@ flutter:
 
   assets:
     - assets/
+
     - assets/icons/
     - assets/icons/home/
     - assets/icons/email/
     - assets/icons/phone/
     - assets/icons/github/
 
+    - assets/images/
+
   fonts:
+    - family: Nauryz
+      fonts:
+        - asset: assets/fonts/Nauryz/Nauryz.ttf
+          weight: 700
     - family: Awoma
       fonts:
         - asset: assets/fonts/Awoma/Awoma.ttf

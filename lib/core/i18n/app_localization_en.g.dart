@@ -39,6 +39,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get changeLanguage => 'Change language';
 
 	late final TranslationsStylesEn styles = TranslationsStylesEn.internal(_root);
+	late final TranslationsHomeEn home = TranslationsHomeEn.internal(_root);
 }
 
 // Path: styles
@@ -60,4 +61,43 @@ class TranslationsStylesEn {
 
 	/// en: 'Title'
 	String get title => 'Title';
+}
+
+// Path: home
+class TranslationsHomeEn {
+	TranslationsHomeEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsHomeHeaderEn header = TranslationsHomeHeaderEn.internal(_root);
+}
+
+// Path: home.header
+class TranslationsHomeHeaderEn {
+	TranslationsHomeHeaderEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Hi 👋, I'm a Flutter developer'
+	String get introduction => 'Hi 👋, I\'m a Flutter developer';
+
+	late final TranslationsHomeHeaderNameEn name = TranslationsHomeHeaderNameEn.internal(_root);
+}
+
+// Path: home.header.name
+class TranslationsHomeHeaderNameEn {
+	TranslationsHomeHeaderNameEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'EGOR MYADZUTA'
+	String get desktop => 'EGOR MYADZUTA';
+
+	/// en: 'EGOR MYADZUTA'
+	String get mobile => 'EGOR\nMYADZUTA';
 }

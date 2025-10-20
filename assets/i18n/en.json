@@ -5,5 +5,14 @@
     "body": "Body",
     "header": "Header",
     "title": "Title"
+  },
+  "home": {
+    "header": {
+      "introduction": "Hi 👋, I'm a Flutter developer",
+      "name": {
+        "desktop": "EGOR MYADZUTA",
+        "mobile": "EGOR\nMYADZUTA"
+      }
+    }
   }
 }

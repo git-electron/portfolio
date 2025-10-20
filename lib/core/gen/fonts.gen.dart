@@ -14,6 +14,9 @@ class FontFamily {
   /// Font family: Awoma
   static const String awoma = 'Awoma';
 
+  /// Font family: Nauryz
+  static const String nauryz = 'Nauryz';
+
   /// Font family: SF Pro
   static const String sFPro = 'SF Pro';
 }

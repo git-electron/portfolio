@@ -34,6 +34,7 @@ class TranslationsRu extends Translations {
 	// Translations
 	@override String get changeLanguage => 'Изменить язык';
 	@override late final TranslationsStylesRu styles = TranslationsStylesRu._(_root);
+	@override late final TranslationsHomeRu home = TranslationsHomeRu._(_root);
 }
 
 // Path: styles
@@ -47,4 +48,36 @@ class TranslationsStylesRu extends TranslationsStylesEn {
 	@override String get body => 'Текст';
 	@override String get header => 'Заголовок';
 	@override String get title => 'Подзаголовок';
+}
+
+// Path: home
+class TranslationsHomeRu extends TranslationsHomeEn {
+	TranslationsHomeRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override late final TranslationsHomeHeaderRu header = TranslationsHomeHeaderRu._(_root);
+}
+
+// Path: home.header
+class TranslationsHomeHeaderRu extends TranslationsHomeHeaderEn {
+	TranslationsHomeHeaderRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get introduction => 'Привет 👋, я Flutter разработчик';
+	@override late final TranslationsHomeHeaderNameRu name = TranslationsHomeHeaderNameRu._(_root);
+}
+
+// Path: home.header.name
+class TranslationsHomeHeaderNameRu extends TranslationsHomeHeaderNameEn {
+	TranslationsHomeHeaderNameRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get desktop => 'ЕГОР МЯДЗЮТА';
+	@override String get mobile => 'ЕГОР\nМЯДЗЮТА';
 }
