@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.center,
             child: Container(
               padding: const Pad(horizontal: 200),
-              constraints: BoxConstraints(maxWidth: 1400),
+              constraints: BoxConstraints(maxWidth: 1600),
               child: Column(
                 spacing: 10,
                 crossAxisAlignment: CrossAxisAlignment.start,
