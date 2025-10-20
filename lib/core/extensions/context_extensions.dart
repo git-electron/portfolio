@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/domain/models/layout_type.dart';
 
 extension BuildContextExtensions on BuildContext {
-  MediaQueryData get mediaQuery => MediaQuery.of(this);
+  MediaQueryData get mediaQueryOf => MediaQuery.of(this);
 
-  Size get size => mediaQuery.size;
-  EdgeInsets get padding => mediaQuery.padding;
-  EdgeInsets get viewInsets => mediaQuery.viewInsets;
+  Size get sizeOf => mediaQueryOf.size;
+  EdgeInsets get paddingOf => mediaQueryOf.padding;
+  EdgeInsets get viewInsetsOf => mediaQueryOf.viewInsets;
 
   LayoutType get layoutType {
-    if (size.width > 1200) return LayoutType.desktop;
-    if (size.width > 700) return LayoutType.tablet;
+    if (sizeOf.width > 1200) return LayoutType.desktop;
+    if (sizeOf.width > 700) return LayoutType.tablet;
     return LayoutType.mobile;
   }
 

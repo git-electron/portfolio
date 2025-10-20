@@ -23,11 +23,17 @@ class $AssetsIconsGen {
   /// Directory path: assets/icons/github
   $AssetsIconsGithubGen get github => const $AssetsIconsGithubGen();
 
+  /// Directory path: assets/icons/hh
+  $AssetsIconsHhGen get hh => const $AssetsIconsHhGen();
+
   /// Directory path: assets/icons/home
   $AssetsIconsHomeGen get home => const $AssetsIconsHomeGen();
 
   /// Directory path: assets/icons/phone
   $AssetsIconsPhoneGen get phone => const $AssetsIconsPhoneGen();
+
+  /// Directory path: assets/icons/telegram
+  $AssetsIconsTelegramGen get telegram => const $AssetsIconsTelegramGen();
 }
 
 class $AssetsImagesGen {
@@ -62,8 +68,28 @@ class $AssetsIconsGithubGen {
   /// File path: assets/icons/github/light.svg
   SvgGenImage get light => const SvgGenImage('assets/icons/github/light.svg');
 
+  /// File path: assets/icons/github/primary.svg
+  SvgGenImage get primary =>
+      const SvgGenImage('assets/icons/github/primary.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [dark, light];
+  List<SvgGenImage> get values => [dark, light, primary];
+}
+
+class $AssetsIconsHhGen {
+  const $AssetsIconsHhGen();
+
+  /// File path: assets/icons/hh/dark.svg
+  SvgGenImage get dark => const SvgGenImage('assets/icons/hh/dark.svg');
+
+  /// File path: assets/icons/hh/light.svg
+  SvgGenImage get light => const SvgGenImage('assets/icons/hh/light.svg');
+
+  /// File path: assets/icons/hh/primary.svg
+  SvgGenImage get primary => const SvgGenImage('assets/icons/hh/primary.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [dark, light, primary];
 }
 
 class $AssetsIconsHomeGen {
@@ -90,6 +116,23 @@ class $AssetsIconsPhoneGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [dark, light];
+}
+
+class $AssetsIconsTelegramGen {
+  const $AssetsIconsTelegramGen();
+
+  /// File path: assets/icons/telegram/dark.svg
+  SvgGenImage get dark => const SvgGenImage('assets/icons/telegram/dark.svg');
+
+  /// File path: assets/icons/telegram/light.svg
+  SvgGenImage get light => const SvgGenImage('assets/icons/telegram/light.svg');
+
+  /// File path: assets/icons/telegram/primary.svg
+  SvgGenImage get primary =>
+      const SvgGenImage('assets/icons/telegram/primary.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [dark, light, primary];
 }
 
 class $AssetsImagesGeneralGen {

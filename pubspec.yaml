@@ -63,10 +63,12 @@ flutter:
     - assets/
 
     - assets/icons/
+    - assets/icons/hh/
     - assets/icons/home/
     - assets/icons/email/
     - assets/icons/phone/
     - assets/icons/github/
+    - assets/icons/telegram/
 
     - assets/images/
     - assets/images/header/

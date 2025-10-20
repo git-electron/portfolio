@@ -18,10 +18,9 @@ class _Styles {
   );
 
   static const TextStyle body = TextStyle(
-    fontSize: 16,
-    height: 0.9,
+    fontSize: 14,
     color: _Colors.text,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
     fontFamily: FontFamily.sFPro,
   );
 

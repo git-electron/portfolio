@@ -2,8 +2,10 @@ import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/core/domain/models/layout_type.dart';
 import 'package:portfolio/core/extensions/context_extensions.dart';
 import 'package:portfolio/presentation/ui/scroll/web_single_child_scroll_view.dart';
+import 'package:portfolio/presentation/ui/wrappers/tappable.dart';
 
 import '../../../core/gen/assets.gen.dart';
 import '../../../core/i18n/app_localization.g.dart';
@@ -24,29 +26,35 @@ class HomeScreen extends StatelessWidget {
       body: WebSingleChildScrollView(
         controller: _controller,
         shouldEnablePadding: true,
-        child: Column(
-          spacing: 10,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
+        child: Stack(
+          alignment: Alignment.topCenter,
           children: [
             _Header(controller: _controller),
-            Gap(context.isMobileLayout ? 200 : 100),
-            Text(
-              'Block title',
-              style: context.styles.title,
+            Column(
+              spacing: 10,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Gap(context.sizeOf.height),
+                Gap(50),
+                Text(
+                  'Block title',
+                  style: context.styles.title,
+                ),
+                const Gap(10),
+                AppButton.primary(
+                  onTap: () {
+                    final AppLocale locale = LocaleSettings.currentLocale;
+                    LocaleSettings.setLocale(switch (locale) {
+                      AppLocale.en => AppLocale.ru,
+                      AppLocale.ru => AppLocale.en,
+                    });
+                  },
+                  text: 'Change language',
+                ),
+                SizedBox(height: 1000),
+              ],
             ),
-            const Gap(10),
-            AppButton.primary(
-              onTap: () {
-                final AppLocale locale = LocaleSettings.currentLocale;
-                LocaleSettings.setLocale(switch (locale) {
-                  AppLocale.en => AppLocale.ru,
-                  AppLocale.ru => AppLocale.en,
-                });
-              },
-              text: 'Change language',
-            ),
-            SizedBox(height: 1000),
           ],
         ),
       ),

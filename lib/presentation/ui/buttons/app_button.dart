@@ -1,5 +1,6 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/extensions/context_extensions.dart';
 
 import '../../../core/extensions/color_extensions.dart';
 import '../../../core/gen/assets.gen.dart';
@@ -15,6 +16,7 @@ class AppButton extends StatelessWidget {
     this.text,
     this.icon,
     this.width,
+    this.borderColor,
     this.height = 50,
     this.isEnabled = true,
     this.isLoading = false,
@@ -41,8 +43,9 @@ class AppButton extends StatelessWidget {
       isEnabled: isEnabled,
       isLoading: isLoading,
       isExpanded: isExpanded,
-      contentColor: AppColors.background,
-      backgroundColor: AppColors.onBackground,
+      borderColor: AppColors.primary,
+      contentColor: AppColors.primary,
+      backgroundColor: AppColors.background.copyWithOpacity(0),
     );
   }
 
@@ -84,10 +87,13 @@ class AppButton extends StatelessWidget {
 
   final Color backgroundColor;
   final Color contentColor;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
     final bool canTap = isEnabled && !isLoading;
+
+    final double adaptiveHeight = context.isDesktopLayout ? height : height * .8;
 
     return IgnorePointer(
       ignoring: !canTap,
@@ -96,16 +102,17 @@ class AppButton extends StatelessWidget {
         child: Opacity(
           opacity: isEnabled ? 1 : .25,
           child: Container(
-            height: height,
+            height: adaptiveHeight,
             width: isExpanded ? double.maxFinite : width,
             padding: isExpanded ? null : const Pad(horizontal: 30),
-            // alignment: Alignment.center,
             decoration: BoxDecoration(
               color: backgroundColor,
+              border: borderColor != null ? Border.all(color: borderColor!, width: 1) : null,
+              borderRadius: BorderRadius.circular(adaptiveHeight / 2),
             ),
             child: !isLoading
                 ? Row(
-                    spacing: 10,
+                    spacing: context.isDesktopLayout ? 10 : 7,
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -114,6 +121,8 @@ class AppButton extends StatelessWidget {
                         Text(
                           text!,
                           style: context.styles.body.copyWith(
+                            fontSize: context.isDesktopLayout ? 14 : 12,
+                            fontWeight: FontWeight.w600,
                             color: contentColor,
                           ),
                         ),

@@ -58,10 +58,16 @@ class TranslationsHomeHeaderEn {
 
 	// Translations
 
-	/// en: 'Hi 👋, I'm a Flutter developer'
-	String get introduction => 'Hi 👋, I\'m a Flutter developer';
+	/// en: 'Hey 👋, I'm a Flutter developer'
+	String get introduction => 'Hey 👋, I\'m a Flutter developer';
 
 	late final TranslationsHomeHeaderNameEn name = TranslationsHomeHeaderNameEn.internal(_root);
+
+	/// en: 'I build fast, scalable and user-friendly cross-platform mobile applications using Flutter framework. My main priorities are clean architecture with best principles, smooth performance and native-looking layout. Working with me is a guaranteed result, regardless of the complexity of the project.'
+	String get description => 'I build fast, scalable and user-friendly cross-platform mobile applications using Flutter framework. My main priorities are clean architecture with best principles, smooth performance and native-looking layout. Working with me is a guaranteed result, regardless of the complexity of the project.';
+
+	/// en: 'Contact me'
+	String get contact_button => 'Contact me';
 }
 
 // Path: home.header.name
