@@ -7,6 +7,7 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print($<DeviceInfoService>().isMobileDevice);
     return Stack(
       clipBehavior: Clip.none,
       alignment: Alignment.center,

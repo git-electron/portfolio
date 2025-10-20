@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
@@ -14,4 +15,6 @@ abstract class Locator {
       dateTimeFormat: DateTimeFormat.dateAndTime,
     ),
   );
+
+  DeviceInfoPlugin get deviceInfoPlugin => DeviceInfoPlugin();
 }

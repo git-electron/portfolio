@@ -2,6 +2,8 @@ import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/core/di/injector.dart';
+import 'package:portfolio/core/domain/services/device_info_service.dart';
 
 import '../../../core/gen/assets.gen.dart';
 import '../../../core/i18n/app_localization.g.dart';
