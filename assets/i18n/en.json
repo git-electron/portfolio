@@ -8,6 +8,12 @@
       },
       "description": "I build fast, scalable and user-friendly cross-platform mobile applications using Flutter framework. My main priorities are clean architecture with best principles, smooth performance and native-looking layout. Working with me is a guaranteed result, regardless of the complexity of the project.",
       "contact_button": "Contact me"
+    },
+    "app_bar": {
+      "home": "Home",
+      "career": "Career",
+      "portfolio": "Portfolio",
+      "contacts": "Contacts"
     }
   },
   "title": "Egor Myadzuta"

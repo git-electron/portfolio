@@ -30,6 +30,7 @@ dependencies:
   freezed_annotation: ^3.1.0
   theme_tailor_annotation: ^3.1.1
   assorted_layout_widgets: ^11.0.0
+  blur: ^4.0.2
 
 dev_dependencies:
   flutter_test:
@@ -63,12 +64,13 @@ flutter:
     - assets/
 
     - assets/icons/
-    - assets/icons/hh/
-    - assets/icons/home/
-    - assets/icons/email/
-    - assets/icons/phone/
-    - assets/icons/github/
-    - assets/icons/telegram/
+    - assets/icons/general/
+    - assets/icons/contacts/hh/
+    - assets/icons/contacts/home/
+    - assets/icons/contacts/email/
+    - assets/icons/contacts/phone/
+    - assets/icons/contacts/github/
+    - assets/icons/contacts/telegram/
 
     - assets/images/
     - assets/images/header/

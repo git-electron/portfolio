@@ -48,6 +48,7 @@ class TranslationsHomeEn {
 
 	// Translations
 	late final TranslationsHomeHeaderEn header = TranslationsHomeHeaderEn.internal(_root);
+	late final TranslationsHomeAppBarEn app_bar = TranslationsHomeAppBarEn.internal(_root);
 }
 
 // Path: home.header
@@ -68,6 +69,27 @@ class TranslationsHomeHeaderEn {
 
 	/// en: 'Contact me'
 	String get contact_button => 'Contact me';
+}
+
+// Path: home.app_bar
+class TranslationsHomeAppBarEn {
+	TranslationsHomeAppBarEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Home'
+	String get home => 'Home';
+
+	/// en: 'Career'
+	String get career => 'Career';
+
+	/// en: 'Portfolio'
+	String get portfolio => 'Portfolio';
+
+	/// en: 'Contacts'
+	String get contacts => 'Contacts';
 }
 
 // Path: home.header.name

@@ -44,6 +44,7 @@ class TranslationsHomeRu extends TranslationsHomeEn {
 
 	// Translations
 	@override late final TranslationsHomeHeaderRu header = TranslationsHomeHeaderRu._(_root);
+	@override late final TranslationsHomeAppBarRu app_bar = TranslationsHomeAppBarRu._(_root);
 }
 
 // Path: home.header
@@ -57,6 +58,19 @@ class TranslationsHomeHeaderRu extends TranslationsHomeHeaderEn {
 	@override late final TranslationsHomeHeaderNameRu name = TranslationsHomeHeaderNameRu._(_root);
 	@override String get description => 'Я создаю быстрые, масштабируемые и удобные для пользователя кроссплатформенные мобильные приложения на фреймворке Flutter. Моими главными приоритетами являются чистая архитектура с налучшими принципами, высокая производительность и интуитивно понятная вёрстка. Работа со мной — это гарантированный результат, вне зависимости от сложности проекта.';
 	@override String get contact_button => 'Связаться со мной';
+}
+
+// Path: home.app_bar
+class TranslationsHomeAppBarRu extends TranslationsHomeAppBarEn {
+	TranslationsHomeAppBarRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Главная';
+	@override String get career => 'Карьера';
+	@override String get portfolio => 'Портфолио';
+	@override String get contacts => 'Контакты';
 }
 
 // Path: home.header.name

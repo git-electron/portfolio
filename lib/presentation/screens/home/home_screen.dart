@@ -1,11 +1,15 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/domain/models/layout_type.dart';
+import 'package:portfolio/core/extensions/app_locale_extensions.dart';
 import 'package:portfolio/core/extensions/context_extensions.dart';
+import 'package:portfolio/presentation/ui/logo/logo.dart';
 import 'package:portfolio/presentation/ui/scroll/web_single_child_scroll_view.dart';
 import 'package:portfolio/presentation/ui/wrappers/tappable.dart';
+import 'package:portfolio/presentation/ui/wrappers/web_padding.dart';
 
 import '../../../core/gen/assets.gen.dart';
 import '../../../core/i18n/app_localization.g.dart';
@@ -13,6 +17,7 @@ import '../../../core/theme/theme_extensions.dart';
 import '../../ui/buttons/app_button.dart';
 
 part 'widgets/header.dart';
+part 'widgets/app_bar.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -23,6 +28,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: _AppBar(
+        controller: _controller,
+        isMobileLayout: context.isMobileLayout,
+      ),
       body: WebSingleChildScrollView(
         controller: _controller,
         shouldEnablePadding: true,

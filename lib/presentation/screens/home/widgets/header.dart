@@ -107,12 +107,12 @@ class _Header extends StatelessWidget {
                           children: <Widget>[
                             _ContactText(
                               onTap: () {},
-                              icon: Assets.icons.phone.light,
+                              icon: Assets.icons.contacts.phone.light,
                               text: '+7 (931) 288-20-04',
                             ),
                             _ContactText(
                               onTap: () {},
-                              icon: Assets.icons.email.light,
+                              icon: Assets.icons.contacts.email.light,
                               text: 'egor.myadzuta@gmail.com',
                             ),
                             const Gap(20),
@@ -145,19 +145,19 @@ class _Header extends StatelessWidget {
                               children: [
                                 _ContactText(
                                   onTap: () {},
-                                  icon: Assets.icons.github.primary,
+                                  icon: Assets.icons.contacts.github.primary,
                                   shouldUpscaleIcon: true,
                                   text: 'GitHub',
                                 ),
                                 _ContactText(
                                   onTap: () {},
-                                  icon: Assets.icons.hh.primary,
+                                  icon: Assets.icons.contacts.hh.primary,
                                   shouldUpscaleIcon: true,
                                   text: 'HeadHunter',
                                 ),
                                 _ContactText(
                                   onTap: () {},
-                                  icon: Assets.icons.telegram.primary,
+                                  icon: Assets.icons.contacts.telegram.primary,
                                   shouldUpscaleIcon: true,
                                   text: 'Telegram',
                                 ),

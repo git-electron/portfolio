@@ -1,10 +1,8 @@
-import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/di/injector.dart';
-import 'package:portfolio/core/domain/models/layout_type.dart';
 import 'package:portfolio/core/domain/services/device_info_service.dart';
-import 'package:portfolio/core/extensions/context_extensions.dart';
 import 'package:portfolio/core/wrappers/web_scroll_wrapper.dart';
+import 'package:portfolio/presentation/ui/wrappers/web_padding.dart';
 
 class WebSingleChildScrollView extends StatelessWidget {
   const WebSingleChildScrollView({
@@ -69,16 +67,8 @@ class _LayoutTypeWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LayoutType layoutType = context.layoutType;
-
-    return Padding(
-      padding: scrollDirection == Axis.vertical && shouldEnablePadding
-          ? switch (layoutType) {
-              LayoutType.desktop => Pad(horizontal: 200),
-              LayoutType.tablet => Pad(horizontal: 100),
-              LayoutType.mobile => Pad(horizontal: 20),
-            }
-          : Pad.zero,
+    return WebPaddingWrapper(
+      isEnabled: scrollDirection == Axis.vertical && shouldEnablePadding,
       child: Align(
         alignment: Alignment.center,
         child: ConstrainedBox(
