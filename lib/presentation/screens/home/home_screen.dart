@@ -29,8 +29,9 @@ class HomeScreen extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           child: Align(
             alignment: Alignment.center,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 1000),
+            child: Container(
+              padding: const Pad(horizontal: 100),
+              constraints: BoxConstraints(maxWidth: 1200),
               child: Column(
                 spacing: 10,
                 crossAxisAlignment: CrossAxisAlignment.start,
