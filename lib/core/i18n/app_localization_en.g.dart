@@ -49,6 +49,7 @@ class TranslationsHomeEn {
 	// Translations
 	late final TranslationsHomeHeaderEn header = TranslationsHomeHeaderEn.internal(_root);
 	late final TranslationsHomeAppBarEn app_bar = TranslationsHomeAppBarEn.internal(_root);
+	late final TranslationsHomeCareerEn career = TranslationsHomeCareerEn.internal(_root);
 }
 
 // Path: home.header
@@ -90,6 +91,18 @@ class TranslationsHomeAppBarEn {
 
 	/// en: 'Contacts'
 	String get contacts => 'Contacts';
+}
+
+// Path: home.career
+class TranslationsHomeCareerEn {
+	TranslationsHomeCareerEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'My career'
+	String get title => 'My career';
 }
 
 // Path: home.header.name

@@ -45,6 +45,7 @@ class TranslationsHomeRu extends TranslationsHomeEn {
 	// Translations
 	@override late final TranslationsHomeHeaderRu header = TranslationsHomeHeaderRu._(_root);
 	@override late final TranslationsHomeAppBarRu app_bar = TranslationsHomeAppBarRu._(_root);
+	@override late final TranslationsHomeCareerRu career = TranslationsHomeCareerRu._(_root);
 }
 
 // Path: home.header
@@ -71,6 +72,16 @@ class TranslationsHomeAppBarRu extends TranslationsHomeAppBarEn {
 	@override String get career => 'Карьера';
 	@override String get portfolio => 'Портфолио';
 	@override String get contacts => 'Контакты';
+}
+
+// Path: home.career
+class TranslationsHomeCareerRu extends TranslationsHomeCareerEn {
+	TranslationsHomeCareerRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Моя карьера';
 }
 
 // Path: home.header.name

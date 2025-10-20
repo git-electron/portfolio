@@ -20,10 +20,34 @@ part 'widgets/header.dart';
 part 'widgets/app_bar.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  static final ScrollController _controller = ScrollController();
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final ScrollController _controller = ScrollController();
+  final ScrollController _horizontalController = ScrollController();
+
+  @override
+  void initState() {
+    _controller.addListener(_controllerListener);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_controllerListener);
+    _controller.dispose();
+    _horizontalController.dispose();
+    super.dispose();
+  }
+
+  void _controllerListener() {
+    _horizontalController.jumpTo(_controller.offset);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +70,49 @@ class HomeScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Gap(context.sizeOf.height),
-                Gap(50),
-                Text(
-                  'Block title',
-                  style: context.styles.title,
+                Align(
+                  alignment: Alignment.center,
+                  child: Positioned(
+                    child: Text(
+                      context.t.home.career.title,
+                      style: context.styles.title,
+                    ),
+                  ),
+                ),
+                ListenableBuilder(
+                  listenable: _controller,
+                  builder: (context, child) {
+                    return SizedBox(
+                      height: context.sizeOf.height * 3,
+                      child: Padding(
+                        padding: Pad(
+                          top: ((_controller.hasClients ? _controller.offset : 0) - context.sizeOf.height).clamp(
+                            0,
+                            double.maxFinite,
+                          ),
+                        ),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: SizedBox(
+                            height: context.sizeOf.height,
+                            child: SingleChildScrollView(
+                              controller: _horizontalController,
+                              scrollDirection: Axis.horizontal,
+                              clipBehavior: Clip.none,
+                              physics: NeverScrollableScrollPhysics(),
+                              child: SizedBox(
+                                width: context.sizeOf.width * 3,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text('text' * 100, maxLines: 1),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
                 const Gap(10),
                 AppButton.primary(

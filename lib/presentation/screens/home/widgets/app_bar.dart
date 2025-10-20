@@ -61,23 +61,27 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                             ),
                             if (!context.isMobileLayout) Gap(0),
                             _AppBarNavigationItem(
-                              text: 'Home',
-                              offset: 0,
+                              text: context.t.home.app_bar.home,
+                              startOffset: 0,
+                              endOffset: context.sizeOf.height,
                               controller: controller,
                             ),
                             _AppBarNavigationItem(
-                              text: 'Career',
-                              offset: context.sizeOf.height,
+                              text: context.t.home.app_bar.career,
+                              startOffset: context.sizeOf.height,
+                              endOffset: context.sizeOf.height * 4,
                               controller: controller,
                             ),
                             _AppBarNavigationItem(
-                              text: 'Portfolio',
-                              offset: context.sizeOf.height * 2,
+                              text: context.t.home.app_bar.portfolio,
+                              startOffset: context.sizeOf.height * 4,
+                              endOffset: context.sizeOf.height * 5,
                               controller: controller,
                             ),
                             _AppBarNavigationItem(
-                              text: 'Contact',
-                              offset: context.sizeOf.height * 3,
+                              text: context.t.home.app_bar.contacts,
+                              startOffset: context.sizeOf.height * 5,
+                              endOffset: context.sizeOf.height * 6,
                               controller: controller,
                             ),
                           ],
@@ -132,12 +136,14 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
 class _AppBarNavigationItem extends StatelessWidget {
   const _AppBarNavigationItem({
     required this.text,
-    required this.offset,
+    required this.startOffset,
+    required this.endOffset,
     required this.controller,
   });
 
   final String text;
-  final double offset;
+  final double startOffset;
+  final double endOffset;
 
   final ScrollController controller;
 
@@ -145,7 +151,7 @@ class _AppBarNavigationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tappable(
       onTap: () => controller.animateTo(
-        offset,
+        startOffset,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       ),
@@ -162,6 +168,5 @@ class _AppBarNavigationItem extends StatelessWidget {
     );
   }
 
-  bool _isSelected(BuildContext context) =>
-      controller.offset >= offset && controller.offset < offset + context.sizeOf.height;
+  bool _isSelected(BuildContext context) => controller.offset >= startOffset && controller.offset < endOffset;
 }
