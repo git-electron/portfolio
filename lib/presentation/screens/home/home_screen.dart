@@ -49,6 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => _controller.jumpTo(-1));
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: _AppBar(
