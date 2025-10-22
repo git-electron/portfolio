@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/domain/models/layout_type.dart';
 import 'package:portfolio/core/extensions/app_locale_extensions.dart';
+import 'package:portfolio/core/extensions/color_extensions.dart';
 import 'package:portfolio/core/extensions/context_extensions.dart';
 import 'package:portfolio/presentation/ui/logo/logo.dart';
 import 'package:portfolio/presentation/ui/scroll/web_single_child_scroll_view.dart';
@@ -17,6 +18,7 @@ import '../../../core/theme/theme_extensions.dart';
 import '../../ui/buttons/app_button.dart';
 
 part 'widgets/header.dart';
+part 'widgets/career.dart';
 part 'widgets/app_bar.dart';
 
 @RoutePage()
@@ -28,25 +30,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final ScrollController _controller = ScrollController();
-  final ScrollController _horizontalController = ScrollController();
+  late final ScrollController _controller;
 
   @override
   void initState() {
-    _controller.addListener(_controllerListener);
+    _controller = ScrollController();
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.removeListener(_controllerListener);
     _controller.dispose();
-    _horizontalController.dispose();
     super.dispose();
-  }
-
-  void _controllerListener() {
-    _horizontalController.jumpTo(_controller.offset);
   }
 
   @override
@@ -70,50 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Gap(context.sizeOf.height),
-                Align(
-                  alignment: Alignment.center,
-                  child: Positioned(
-                    child: Text(
-                      context.t.home.career.title,
-                      style: context.styles.title,
-                    ),
-                  ),
-                ),
-                ListenableBuilder(
-                  listenable: _controller,
-                  builder: (context, child) {
-                    return SizedBox(
-                      height: context.sizeOf.height * 3,
-                      child: Padding(
-                        padding: Pad(
-                          top: ((_controller.hasClients ? _controller.offset : 0) - context.sizeOf.height).clamp(
-                            0,
-                            double.maxFinite,
-                          ),
-                        ),
-                        child: Align(
-                          alignment: Alignment.topCenter,
-                          child: SizedBox(
-                            height: context.sizeOf.height,
-                            child: SingleChildScrollView(
-                              controller: _horizontalController,
-                              scrollDirection: Axis.horizontal,
-                              clipBehavior: Clip.none,
-                              physics: NeverScrollableScrollPhysics(),
-                              child: SizedBox(
-                                width: context.sizeOf.width * 3,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text('text' * 100, maxLines: 1),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                _Career(controller: _controller),
                 const Gap(10),
                 AppButton.primary(
                   onTap: () {

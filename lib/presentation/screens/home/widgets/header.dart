@@ -87,7 +87,6 @@ class _Header extends StatelessWidget {
               opacity: (1 - controller.offset / 800).clamp(0, 1),
               child: SizedBox(
                 height: context.sizeOf.height,
-                width: context.sizeOf.width,
                 child: Padding(
                   padding: Pad(bottom: 50 + parallaxOffset),
                   child: Row(
