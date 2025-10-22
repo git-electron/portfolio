@@ -65,7 +65,7 @@ class _CareerState extends State<_Career> {
                 scrollDirection: Axis.horizontal,
                 clipBehavior: Clip.none,
                 physics: NeverScrollableScrollPhysics(),
-
+        
                 child: Row(
                   children: List.generate(
                     pagesCount,
@@ -74,7 +74,7 @@ class _CareerState extends State<_Career> {
                       width: context.sizeOf.width.clamp(0, 1600) - WebPaddingWrapper.totalHorizontalValue(context),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: context.colors.white.copyWithOpacity(.5),
+                        color: context.colors.primary.copyWithOpacity(.25),
                       ),
                     ),
                   ),
