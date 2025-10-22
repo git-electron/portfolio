@@ -28,7 +28,15 @@ class _CareerState extends State<_Career> {
   }
 
   void _controllerListener() {
-    _horizontalController.jumpTo(widget.controller.offset);
+    _horizontalController.jumpTo(
+      ((widget.controller.offset) - context.sizeOf.height).clamp(0, double.infinity) /
+          context.sizeOf.height *
+          (context.sizeOf.width - WebPaddingWrapper.totalHorizontalValue(context)),
+    );
+    // _horizontalController.jumpTo(
+    //   ((widget.controller.offset) - context.sizeOf.height).clamp(0, double.infinity) *
+    //       (context.sizeOf.width / context.sizeOf.height),
+    // );
   }
 
   @override
@@ -63,7 +71,7 @@ class _CareerState extends State<_Career> {
                     pagesCount,
                     (index) => Container(
                       height: context.sizeOf.height,
-                      width: context.sizeOf.width.clamp(0, 1600),
+                      width: context.sizeOf.width.clamp(0, 1600) - WebPaddingWrapper.totalHorizontalValue(context),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         color: context.colors.white.copyWithOpacity(.5),

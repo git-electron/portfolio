@@ -13,16 +13,18 @@ class WebPaddingWrapper extends StatelessWidget {
   final Widget child;
   final bool isEnabled;
 
+  static double horizontalValue(BuildContext context) => switch (context.layoutType) {
+    LayoutType.desktop => 200,
+    LayoutType.tablet => 100,
+    LayoutType.mobile => 20,
+  };
+
+  static double totalHorizontalValue(BuildContext context) => horizontalValue(context) * 2;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: isEnabled
-          ? switch (context.layoutType) {
-              LayoutType.desktop => Pad(horizontal: 200),
-              LayoutType.tablet => Pad(horizontal: 100),
-              LayoutType.mobile => Pad(horizontal: 20),
-            }
-          : Pad.zero,
+      padding: isEnabled ? Pad(horizontal: horizontalValue(context)) : Pad.zero,
       child: child,
     );
   }
