@@ -31,7 +31,7 @@ class _CareerState extends State<_Career> {
     _horizontalController.jumpTo(
       ((widget.controller.offset) - context.sizeOf.height).clamp(0, double.infinity) /
           context.sizeOf.height *
-          (context.sizeOf.width - WebPaddingWrapper.totalHorizontalValue(context)),
+          ((context.sizeOf.width).clamp(0, 1600) - WebPaddingWrapper.totalHorizontalValue(context)),
     );
     // _horizontalController.jumpTo(
     //   ((widget.controller.offset) - context.sizeOf.height).clamp(0, double.infinity) *

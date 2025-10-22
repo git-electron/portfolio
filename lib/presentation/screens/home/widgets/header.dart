@@ -85,49 +85,61 @@ class _Header extends StatelessWidget {
 
             return Opacity(
               opacity: (1 - controller.offset / 800).clamp(0, 1),
-              child: SizedBox(
-                height: context.sizeOf.height,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: 1600 - WebPaddingWrapper.totalHorizontalValue(context),
+                  maxHeight: context.sizeOf.height,
+                  minHeight: context.sizeOf.height,
+                ),
                 child: Padding(
                   padding: Pad(bottom: 50 + parallaxOffset),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      SizedBox(
-                        width: switch (context.layoutType) {
-                          LayoutType.desktop => context.sizeOf.width * .2,
-                          LayoutType.tablet => context.sizeOf.width * .3,
-                          LayoutType.mobile => context.sizeOf.width * .35,
-                        },
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: switch (context.layoutType) {
+                            LayoutType.desktop => context.sizeOf.width * .2,
+                            LayoutType.tablet => context.sizeOf.width * .3,
+                            LayoutType.mobile => context.sizeOf.width * .35,
+                          },
+                        ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             _ContactText(
-                              onTap: () {},
+                              onTap: () => $<UrlLauncher>().launchPhoneNumberString('+7 (931) 288-20-04'),
                               icon: Assets.icons.contacts.phone.light,
                               text: '+7 (931) 288-20-04',
                             ),
                             _ContactText(
-                              onTap: () {},
+                              onTap: () => $<UrlLauncher>().launchEmailString('egor.myadzuta@gmail.com'),
                               icon: Assets.icons.contacts.email.light,
                               text: 'egor.myadzuta@gmail.com',
                             ),
                             const Gap(20),
                             AppButton.primary(
-                              onTap: () {},
+                              onTap: () => controller.animateTo(
+                                context.sizeOf.height * 5,
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeInOut,
+                              ),
                               text: context.t.home.header.contact_button,
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(
-                        width: switch (context.layoutType) {
-                          LayoutType.desktop => context.sizeOf.width * .25,
-                          LayoutType.tablet => context.sizeOf.width * .3,
-                          LayoutType.mobile => context.sizeOf.width * .4,
-                        },
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: switch (context.layoutType) {
+                            LayoutType.desktop => (context.sizeOf.width * .25).clamp(0, 500),
+                            LayoutType.tablet => context.sizeOf.width * .3,
+                            LayoutType.mobile => context.sizeOf.width * .4,
+                          },
+                        ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -143,19 +155,21 @@ class _Header extends StatelessWidget {
                               spacing: 15,
                               children: [
                                 _ContactText(
-                                  onTap: () {},
+                                  onTap: () => $<UrlLauncher>().launchUrlString('https://github.com/git-electron'),
                                   icon: Assets.icons.contacts.github.primary,
                                   shouldUpscaleIcon: true,
                                   text: 'GitHub',
                                 ),
                                 _ContactText(
-                                  onTap: () {},
+                                  onTap: () => $<UrlLauncher>().launchUrlString(
+                                    'https://hh.ru/resume/3ec16665ff0973146d0039ed1f696b35496433',
+                                  ),
                                   icon: Assets.icons.contacts.hh.primary,
                                   shouldUpscaleIcon: true,
                                   text: 'HeadHunter',
                                 ),
                                 _ContactText(
-                                  onTap: () {},
+                                  onTap: () => $<UrlLauncher>().launchUrlString('https://t.me/drwwzy'),
                                   icon: Assets.icons.contacts.telegram.primary,
                                   shouldUpscaleIcon: true,
                                   text: 'Telegram',

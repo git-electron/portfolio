@@ -3,10 +3,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/core/di/injector.dart';
 import 'package:portfolio/core/domain/models/layout_type.dart';
 import 'package:portfolio/core/extensions/app_locale_extensions.dart';
 import 'package:portfolio/core/extensions/color_extensions.dart';
 import 'package:portfolio/core/extensions/context_extensions.dart';
+import 'package:portfolio/core/utils/url_launcher/url_launcher.dart';
 import 'package:portfolio/presentation/ui/logo/logo.dart';
 import 'package:portfolio/presentation/ui/scroll/web_single_child_scroll_view.dart';
 import 'package:portfolio/presentation/ui/wrappers/tappable.dart';
@@ -55,32 +57,35 @@ class _HomeScreenState extends State<HomeScreen> {
       body: WebSingleChildScrollView(
         controller: _controller,
         shouldEnablePadding: true,
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            _Header(controller: _controller),
-            Column(
-              spacing: 10,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Gap(context.sizeOf.height),
-                _Career(controller: _controller),
-                const Gap(10),
-                AppButton.primary(
-                  onTap: () {
-                    final AppLocale locale = LocaleSettings.currentLocale;
-                    LocaleSettings.setLocale(switch (locale) {
-                      AppLocale.en => AppLocale.ru,
-                      AppLocale.ru => AppLocale.en,
-                    });
-                  },
-                  text: 'Change language',
-                ),
-                SizedBox(height: 1000),
-              ],
-            ),
-          ],
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 1600 - WebPaddingWrapper.totalHorizontalValue(context)),
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              _Header(controller: _controller),
+              Column(
+                spacing: 10,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Gap(context.sizeOf.height),
+                  _Career(controller: _controller),
+                  const Gap(10),
+                  AppButton.primary(
+                    onTap: () {
+                      final AppLocale locale = LocaleSettings.currentLocale;
+                      LocaleSettings.setLocale(switch (locale) {
+                        AppLocale.en => AppLocale.ru,
+                        AppLocale.ru => AppLocale.en,
+                      });
+                    },
+                    text: 'Change language',
+                  ),
+                  SizedBox(height: 1000),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -17,6 +17,7 @@ import 'package:portfolio/core/di/locator.dart' as _i756;
 import 'package:portfolio/core/domain/services/device_info_service.dart'
     as _i878;
 import 'package:portfolio/core/router/router.dart' as _i341;
+import 'package:portfolio/core/utils/url_launcher/url_launcher.dart' as _i804;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -28,6 +29,7 @@ extension GetItInjectableX on _i174.GetIt {
     final locator = _$Locator();
     gh.factory<_i974.Logger>(() => locator.logger);
     gh.factory<_i833.DeviceInfoPlugin>(() => locator.deviceInfoPlugin);
+    gh.factory<_i804.UrlLauncher>(() => _i804.UrlLauncher());
     gh.singleton<_i341.AppRouter>(() => _i341.AppRouter(gh<_i974.Logger>()));
     await gh.singletonAsync<_i878.DeviceInfoService>(() {
       final i = _i878.DeviceInfoService(gh<_i833.DeviceInfoPlugin>());
