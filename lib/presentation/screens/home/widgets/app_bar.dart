@@ -17,11 +17,11 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!controller.hasClients) return const SizedBox();
-
     return ListenableBuilder(
       listenable: controller,
       builder: (context, child) {
+        if (!controller.hasClients) return const SizedBox();
+
         return Blur(
           blur: controller.offset.clamp(0, 30),
           colorOpacity: (controller.offset / 100).clamp(0, .8),
