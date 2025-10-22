@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     _controller = ScrollController();
+    setState(() {});
     super.initState();
   }
 
@@ -48,50 +49,46 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        return Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: _AppBar(
-            controller: _controller,
-            isMobileLayout: context.isMobileLayout,
-          ),
-          body: WebSingleChildScrollView(
-            controller: _controller,
-            shouldEnablePadding: true,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 1600 - WebPaddingWrapper.totalHorizontalValue(context)),
-              child: Stack(
-                alignment: Alignment.topCenter,
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: _AppBar(
+        controller: _controller,
+        isMobileLayout: context.isMobileLayout,
+      ),
+      body: WebSingleChildScrollView(
+        controller: _controller,
+        shouldEnablePadding: true,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 1600 - WebPaddingWrapper.totalHorizontalValue(context)),
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              _Header(controller: _controller),
+              Column(
+                spacing: 10,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  _Header(controller: _controller),
-                  Column(
-                    spacing: 10,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Gap(context.sizeOf.height),
-                      _Career(controller: _controller),
-                      const Gap(10),
-                      AppButton.primary(
-                        onTap: () {
-                          final AppLocale locale = LocaleSettings.currentLocale;
-                          LocaleSettings.setLocale(switch (locale) {
-                            AppLocale.en => AppLocale.ru,
-                            AppLocale.ru => AppLocale.en,
-                          });
-                        },
-                        text: 'Change language',
-                      ),
-                      SizedBox(height: 1000),
-                    ],
+                  Gap(context.sizeOf.height),
+                  _Career(controller: _controller),
+                  const Gap(10),
+                  AppButton.primary(
+                    onTap: () {
+                      final AppLocale locale = LocaleSettings.currentLocale;
+                      LocaleSettings.setLocale(switch (locale) {
+                        AppLocale.en => AppLocale.ru,
+                        AppLocale.ru => AppLocale.en,
+                      });
+                    },
+                    text: 'Change language',
                   ),
+                  SizedBox(height: 1000),
                 ],
               ),
-            ),
+            ],
           ),
-        );
-      }
+        ),
+      ),
     );
   }
 }
