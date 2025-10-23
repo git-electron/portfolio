@@ -53,35 +53,35 @@ class _CareerState extends State<_Career> {
             style: context.styles.title,
           ),
         ),
-        // ListenableBuilder(
-        //   listenable: widget.controller,
-        //   builder: (context, child) {
-        //     return _FloatingWrapper(
-        //       controller: widget.controller,
-        //       pagesCount: pagesCount,
-        //       child: SingleChildScrollView(
-        //         controller: _horizontalController,
-        //         scrollDirection: Axis.horizontal,
-        //         clipBehavior: Clip.none,
-        //         physics: NeverScrollableScrollPhysics(),
+        ListenableBuilder(
+          listenable: widget.controller,
+          builder: (context, child) {
+            return _FloatingWrapper(
+              controller: widget.controller,
+              pagesCount: pagesCount,
+              child: SingleChildScrollView(
+                controller: _horizontalController,
+                scrollDirection: Axis.horizontal,
+                clipBehavior: Clip.none,
+                physics: NeverScrollableScrollPhysics(),
 
-        //         child: Row(
-        //           children: List.generate(
-        //             pagesCount,
-        //             (index) => Container(
-        //               height: context.sizeOf.height,
-        //               width: context.sizeOf.width.clamp(0, 1600) - WebPaddingWrapper.totalHorizontalValue(context),
-        //               decoration: BoxDecoration(
-        //                 borderRadius: BorderRadius.circular(50),
-        //                 color: context.colors.primary.copyWithOpacity(.25),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     );
-        //   },
-        // ),
+                child: Row(
+                  children: List.generate(
+                    pagesCount,
+                    (index) => Container(
+                      height: context.sizeOf.height,
+                      width: context.sizeOf.width.clamp(0, 1600) - WebPaddingWrapper.totalHorizontalValue(context),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: context.colors.primary.copyWithOpacity(.25),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
       ],
     );
   }
