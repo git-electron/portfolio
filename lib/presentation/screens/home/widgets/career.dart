@@ -49,7 +49,7 @@ class _CareerState extends State<_Career> {
           alignment: Alignment.center,
           child: Positioned(
             child: Text(
-              context.t.home.career.title,
+              context.t.home.career.title + context.sizeOf.height.toString(),
               style: context.styles.title,
             ),
           ),
