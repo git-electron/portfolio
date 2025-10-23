@@ -44,6 +44,7 @@ class _CareerState extends State<_Career> {
     final int pagesCount = 3; //TODO
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Align(
           alignment: Alignment.center,
@@ -65,7 +66,7 @@ class _CareerState extends State<_Career> {
                 scrollDirection: Axis.horizontal,
                 clipBehavior: Clip.none,
                 physics: NeverScrollableScrollPhysics(),
-        
+
                 child: Row(
                   children: List.generate(
                     pagesCount,
