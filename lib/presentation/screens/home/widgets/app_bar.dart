@@ -4,10 +4,12 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
   const _AppBar({
     required this.controller,
     required this.isMobileLayout,
+    required this.careerPagesCount,
   });
 
   final ScrollController controller;
   final bool isMobileLayout;
+  final int careerPagesCount;
 
   double get _height => isMobileLayout ? 60 : 80;
   double get _iconHeight => _height - 20;
@@ -41,7 +43,11 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                       child: Opacity(
                         opacity: (controller.offset / 100).clamp(0, 1),
                         child: Row(
-                          spacing: context.isMobileLayout ? 10 : 20,
+                          spacing: context.isMobileLayout
+                              ? 5
+                              : context.isDesktopLayout
+                              ? 20
+                              : 10,
                           children: [
                             Tappable(
                               onTap: () => controller.animateTo(
@@ -59,7 +65,7 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                                 ),
                               ),
                             ),
-                            if (!context.isMobileLayout) Gap(0),
+                            Gap(0),
                             _AppBarNavigationItem(
                               text: context.t.home.app_bar.home,
                               startOffset: 0,
@@ -69,19 +75,19 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                             _AppBarNavigationItem(
                               text: context.t.home.app_bar.career,
                               startOffset: context.sizeOf.height,
-                              endOffset: context.sizeOf.height * 4,
+                              endOffset: context.sizeOf.height * (careerPagesCount + 1),
                               controller: controller,
                             ),
                             _AppBarNavigationItem(
                               text: context.t.home.app_bar.portfolio,
-                              startOffset: context.sizeOf.height * 4,
-                              endOffset: context.sizeOf.height * 5,
+                              startOffset: context.sizeOf.height * (careerPagesCount + 1),
+                              endOffset: context.sizeOf.height * (careerPagesCount + 2),
                               controller: controller,
                             ),
                             _AppBarNavigationItem(
                               text: context.t.home.app_bar.contacts,
-                              startOffset: context.sizeOf.height * 5,
-                              endOffset: context.sizeOf.height * 6,
+                              startOffset: context.sizeOf.height * (careerPagesCount + 2),
+                              endOffset: context.sizeOf.height * (careerPagesCount + 3),
                               controller: controller,
                             ),
                           ],
@@ -95,10 +101,15 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                         icon: Row(
                           spacing: 5,
                           children: [
-                            Icon(Icons.language_sharp),
+                            Icon(
+                              Icons.language_sharp,
+                              size: context.isDesktopLayout ? 24 : 20,
+                            ),
                             Text(
                               LocaleSettings.currentLocale.title,
-                              style: context.styles.body,
+                              style: context.styles.body.copyWith(
+                                fontSize: context.isDesktopLayout ? null : 12,
+                              ),
                             ),
                           ],
                         ),
@@ -111,7 +122,9 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                               value: locale,
                               child: Text(
                                 locale.title,
-                                style: context.styles.body,
+                                style: context.styles.body.copyWith(
+                                  fontSize: context.isDesktopLayout ? null : 12,
+                                ),
                               ),
                             );
                           }).toList();
@@ -157,13 +170,11 @@ class _AppBarNavigationItem extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: _isSelected(context)
-            ? context.styles.body.copyWith(
-                color: context.colors.primary,
-                decoration: TextDecoration.underline,
-                decorationColor: context.colors.primary,
-              )
-            : context.styles.body.copyWith(fontWeight: FontWeight.w600),
+        style: context.styles.body.copyWith(
+          fontSize: context.isDesktopLayout ? null : 12,
+          color: _isSelected(context) ? context.colors.primary : null,
+          fontWeight: _isSelected(context) ? FontWeight.w700 : FontWeight.w600,
+        ),
       ),
     );
   }

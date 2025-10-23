@@ -82,6 +82,9 @@ class TranslationsHomeCareerRu extends TranslationsHomeCareerEn {
 
 	// Translations
 	@override String get title => 'Моя карьера';
+	@override late final TranslationsHomeCareerOctaRu octa = TranslationsHomeCareerOctaRu._(_root);
+	@override late final TranslationsHomeCareerProductDetailingRu product_detailing = TranslationsHomeCareerProductDetailingRu._(_root);
+	@override late final TranslationsHomeCareerDnaTeamRu dna_team = TranslationsHomeCareerDnaTeamRu._(_root);
 }
 
 // Path: home.header.name
@@ -93,4 +96,34 @@ class TranslationsHomeHeaderNameRu extends TranslationsHomeHeaderNameEn {
 	// Translations
 	@override String get desktop => 'ЕГОР МЯДЗЮТА';
 	@override String get mobile => 'ЕГОР\nМЯДЗЮТА';
+}
+
+// Path: home.career.octa
+class TranslationsHomeCareerOctaRu extends TranslationsHomeCareerOctaEn {
+	TranslationsHomeCareerOctaRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get description => 'OctaFX — международный онлайн-брокер, основанный в 2011 году. Компания предоставляет услуги по торговле на финансовых рынках: Forex, CFD, металлы, криптовалюты и товары. Основной продукт ориентируется на частных трейдеров, предлагая им доступ к современным торговым платформам, аналитике и образовательным материалам.\n\nМоя зона ответственности в компании — Full-stack разработка обучающего продукта: мобильного приложения для обучения трейдингу с курсами, тестами и вебинарами (100 000+ установок, 10 000+ MAU)';
+}
+
+// Path: home.career.product_detailing
+class TranslationsHomeCareerProductDetailingRu extends TranslationsHomeCareerProductDetailingEn {
+	TranslationsHomeCareerProductDetailingRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get description => 'Product Detailing — студия веб-разработки, специализирующаяся на создании и масштабировании цифровых продуктов любой сложности. Компания занимается исследованием рынка и пользователей, разработкой стратегий, проектированием UX/UI, управлением командами разработки и внедрением продуктовых процессов.\n\nПродукт — iRealt — онлайн-платформа для риелторов и агентств недвижимости, предоставляющая доступ к базе объектов напрямую от застройщиков. Продукт специализируется на упрощении сделок с недвижимостью, предоставляя ускоренные выплаты комиссий и возможность работы с эксклюзивными предложениями на рынке.';
+}
+
+// Path: home.career.dna_team
+class TranslationsHomeCareerDnaTeamRu extends TranslationsHomeCareerDnaTeamEn {
+	TranslationsHomeCareerDnaTeamRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get description => 'DNA Team — студия разработки цифровых продуктов, создающая веб-сервисы и мобильные приложения под ключ с упором на нестандартные решения и высокую скорость реализации. Компания выделяется интеграцией сложных корпоративных систем и персонализированным подходом к каждому проекту для крупных клиентов.\n\nВ рамках сотрудничества я принимал участие в разработке мобильного приложения для медицинской клиники в Дубае. Seline Clinic Dubai позволяет записываться на процедуры, просматривать историю посещений, управлять личными данными и участвовать в программе лояльности с накоплением баллов.';
 }

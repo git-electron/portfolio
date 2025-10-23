@@ -34,7 +34,7 @@ class _Header extends StatelessWidget {
                     Text(
                       context.t.home.header.introduction,
                       style: context.styles.body.copyWith(
-                        fontSize: 16,
+                        fontSize: context.isDesktopLayout ? 16 : 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

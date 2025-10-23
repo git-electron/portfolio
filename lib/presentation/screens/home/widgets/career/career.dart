@@ -1,9 +1,12 @@
-part of '../home_screen.dart';
+part of '../../home_screen.dart';
 
 class _Career extends StatefulWidget {
   const _Career({required this.controller});
 
   final ScrollController controller;
+
+  static const int careerPagesCount = 3;
+  int get pagesCount => careerPagesCount;
 
   @override
   State<_Career> createState() => _CareerState();
@@ -29,28 +32,22 @@ class _CareerState extends State<_Career> {
 
   void _controllerListener() {
     _horizontalController.jumpTo(
-      ((widget.controller.offset) - context.sizeOf.height).clamp(0, double.infinity) /
+      ((widget.controller.offset) - context.sizeOf.height).clamp(0, context.sizeOf.height * (widget.pagesCount - 1)) /
           context.sizeOf.height *
           ((context.sizeOf.width).clamp(0, 1600) - WebPaddingWrapper.totalHorizontalValue(context)),
     );
-    // _horizontalController.jumpTo(
-    //   ((widget.controller.offset) - context.sizeOf.height).clamp(0, double.infinity) *
-    //       (context.sizeOf.width / context.sizeOf.height),
-    // );
   }
 
   @override
   Widget build(BuildContext context) {
-    final int pagesCount = 3; //TODO
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Align(
           alignment: Alignment.center,
           child: Text(
-            context.t.home.career.title + context.sizeOf.height.toString(),
-            style: context.styles.title,
+            context.t.home.career.title,
+            style: context.styles.title.copyWith(fontSize: context.isDesktopLayout ? 30 : 20),
           ),
         ),
         ListenableBuilder(
@@ -58,7 +55,7 @@ class _CareerState extends State<_Career> {
           builder: (context, child) {
             return _FloatingWrapper(
               controller: widget.controller,
-              pagesCount: pagesCount,
+              pagesCount: widget.pagesCount,
               child: SingleChildScrollView(
                 controller: _horizontalController,
                 scrollDirection: Axis.horizontal,
@@ -67,13 +64,14 @@ class _CareerState extends State<_Career> {
 
                 child: Row(
                   children: List.generate(
-                    pagesCount,
-                    (index) => Container(
+                    widget.pagesCount,
+                    (index) => SizedBox(
                       height: context.sizeOf.height,
                       width: context.sizeOf.width.clamp(0, 1600) - WebPaddingWrapper.totalHorizontalValue(context),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: context.colors.primary.copyWithOpacity(.25),
+                      child: _Tile(
+                        index: index,
+                        isFirst: index == 0,
+                        isLast: index == widget.pagesCount - 1,
                       ),
                     ),
                   ),
@@ -107,7 +105,7 @@ class _FloatingWrapper extends StatelessWidget {
         padding: Pad(
           top: ((controller.hasClients ? controller.offset : 0) - context.sizeOf.height).clamp(
             0,
-            context.sizeOf.height * pagesCount,
+            context.sizeOf.height * (pagesCount - 1),
           ),
         ),
         child: Align(

@@ -3,25 +3,27 @@ import 'package:auto_route/auto_route.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/di/injector.dart';
-import 'package:portfolio/core/domain/models/layout_type.dart';
-import 'package:portfolio/core/extensions/app_locale_extensions.dart';
+import 'package:portfolio/core/domain/services/career_service.dart';
 import 'package:portfolio/core/extensions/color_extensions.dart';
-import 'package:portfolio/core/extensions/context_extensions.dart';
-import 'package:portfolio/core/utils/url_launcher/url_launcher.dart';
-import 'package:portfolio/presentation/ui/logo/logo.dart';
-import 'package:portfolio/presentation/ui/scroll/web_single_child_scroll_view.dart';
-import 'package:portfolio/presentation/ui/wrappers/tappable.dart';
-import 'package:portfolio/presentation/ui/wrappers/web_padding.dart';
 
+import '../../../core/di/injector.dart';
+import '../../../core/domain/models/layout_type.dart';
+import '../../../core/extensions/app_locale_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 import '../../../core/gen/assets.gen.dart';
 import '../../../core/i18n/app_localization.g.dart';
 import '../../../core/theme/theme_extensions.dart';
+import '../../../core/utils/url_launcher/url_launcher.dart';
 import '../../ui/buttons/app_button.dart';
+import '../../ui/logo/logo.dart';
+import '../../ui/scroll/web_single_child_scroll_view.dart';
+import '../../ui/wrappers/tappable.dart';
+import '../../ui/wrappers/web_padding.dart';
 
-part 'widgets/header.dart';
-part 'widgets/career.dart';
 part 'widgets/app_bar.dart';
+part 'widgets/career/career.dart';
+part 'widgets/career/tile.dart';
+part 'widgets/header.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -56,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: _AppBar(
         controller: _controller,
         isMobileLayout: context.isMobileLayout,
+        careerPagesCount: _Career.careerPagesCount,
       ),
       body: WebSingleChildScrollView(
         controller: _controller,
